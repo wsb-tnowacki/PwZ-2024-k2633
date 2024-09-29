@@ -1,12 +1,12 @@
 @extends('szablon')
 @section('tytul')
-    Start
+    Kontak
 @endsection
 @section('podtytul')
-    Strona startowa
+    Strona kontaktowa
 @endsection
 @section('tresc')
-    <p>Treść strony startowej
+    <p>Treść strony kontaktowej
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi commodi in inventore vero. Dicta assumenda ipsum aspernatur sapiente, quae nemo! Temporibus deserunt aut consectetur numquam dolore incidunt facilis. Esse, sapiente.
     </p>
 @endsection
