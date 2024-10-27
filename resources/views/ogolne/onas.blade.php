@@ -7,11 +7,13 @@
 @endsection
 @section('tresc')
     <div>Treść strony o nas
+        @isset($zadania)
         <ol>
             @foreach ($zadania as $zadanie)
                 <li>{{ $zadanie }}</li>
             @endforeach
-        </ol>
+        </ol>            
+        @endisset
     </div>
    
 @endsection
