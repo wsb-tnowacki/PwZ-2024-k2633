@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
     return view('ogolne.welcome');
 })->name('start'); */
 
-Route::get('/', [OgolneController::class, 'start'])->name('start');
+//Route::get('/', [OgolneController::class, 'start'])->name('start');
 
 /* Route::get('/kontakt', function () {
     return view('ogolne.kontakt');
 })->name('kontakt');  */
-Route::get('/kontakt', [OgolneController::class, 'kontakt'])->name('kontakt');
+//Route::get('/kontakt', [OgolneController::class, 'kontakt'])->name('kontakt');
 
 /* Route::get('/onas', function () {
     $zadania =[
@@ -34,9 +34,14 @@ Route::get('/kontakt', [OgolneController::class, 'kontakt'])->name('kontakt');
     ];
     return view('ogolne.onas', ['zadania' => $zadania] );
 })->name('onas'); */
-Route::get('/onas', [OgolneController::class, 'onas'])->name('onas');
+//Route::get('/onas', [OgolneController::class, 'onas'])->name('onas');
 
-
+Route::controller(OgolneController::class)->group(function()
+{
+    Route::get('/','start')->name('start');
+    Route::get('/kontakt','kontakt')->name('kontakt');
+    Route::get('/onas','onas')->name('onas');
+});
 
 Route::get('/dashboard', function () {
     //return view('dashboard');
