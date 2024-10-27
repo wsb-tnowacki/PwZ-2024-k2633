@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('ogolne.welcome');
+})->name('start');
 
 Route::get('/kontakt', function () {
-    return view('kontakt');
-}); 
+    return view('ogolne.kontakt');
+})->name('kontakt'); 
 
 Route::get('/onas', function () {
     $zadania =[
@@ -28,11 +28,12 @@ Route::get('/onas', function () {
         'Zadanie 2',
         'Zadanie 3'
     ];
-    return view('test.onas', ['zadania' => $zadania] );
-});
+    return view('ogolne.onas', ['zadania' => $zadania] );
+})->name('onas');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    //return view('dashboard');
+    return redirect()->route('start');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
