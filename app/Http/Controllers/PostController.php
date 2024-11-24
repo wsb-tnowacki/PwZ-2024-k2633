@@ -37,12 +37,13 @@ class PostController extends Controller
         ]);
         
         $post= new Post();
-        $post->tytul = $request['tytul'];
+/*         $post->tytul = $request['tytul'];
         $post->autor = request('autor');
         $post->email = request('email');
         $post->tresc = request('tresc');
 
-        $post->save();
+        $post->save(); */
+        $post->create($request->all());
         return redirect()->route('post.index')->with('message','Dodano poprawnie posta');
     }
 
