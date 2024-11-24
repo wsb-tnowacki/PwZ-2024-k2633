@@ -12,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'lista postów';
+        $posty = Post::all();
+        return view('post.lista',compact('posty'));
     }
 
     /**
@@ -28,16 +29,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            'tytul' => 'required|min:3|max:200',
+            'autor' => ['required','min:4','max:100'],
+            'email' => ['required','email:rfc,dns'],
+            'tresc' => ['required','min:5'],
+        ]);
         
         $post= new Post();
-        $post->tytul = $request['tutul'];
+        $post->tytul = $request['tytul'];
         $post->autor = request('autor');
         $post->email = request('email');
         $post->tresc = request('tresc');
 
         $post->save();
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('message','Dodano poprawnie posta');
     }
 
     /**
