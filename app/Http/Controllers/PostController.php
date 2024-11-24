@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return 'lista postów';
     }
 
     /**
@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.dodaj');
     }
 
     /**
@@ -28,7 +28,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        
+        $post= new Post();
+        $post->tytul = $request['tutul'];
+        $post->autor = request('autor');
+        $post->email = request('email');
+        $post->tresc = request('tresc');
+
+        $post->save();
+        return redirect()->route('post.index');
     }
 
     /**
