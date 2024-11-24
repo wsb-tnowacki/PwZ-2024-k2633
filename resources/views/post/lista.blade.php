@@ -2,6 +2,9 @@
 @section('tytul','Lista postów')
 @section('podtytul','Lista postów')
 @section('tresc')
+<div>
+    <a href="{{route('post.create')}}"><button class="btn btn-primary form-btn m-2" type="button">Dodaj post</button></a>
+</div>
 <table class="table table-striped w-100">
     <thead class="w-100">
         <th scope="col">Lp</th>

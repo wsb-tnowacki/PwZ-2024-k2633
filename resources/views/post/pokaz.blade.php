@@ -23,17 +23,17 @@
 </div>
 <div class="d-flex">
     <a href="{{route('post.edit',$post->id)}}">
-        <button class="btn btn-success form-btn m-1" type="button">Edytuj posta</button>
+        <button class="btn btn-success form-btn mt-1" type="button">Edytuj posta</button>
     </a>
     <form action="{{route('post.destroy',$post->id)}}" method="post" onsubmit="return confirmDelete()">
         @csrf
         @method('DELETE')
-        <button class="btn btn-danger form-btn m-1" type="submit">Usuń posta</button>
+        <button class="btn btn-danger form-btn mt-1 mx-1" type="submit">Usuń posta</button>
     </form>    
 </div>
 
 @endisset
-<a href="{{route('post.index')}}"><button class="btn btn-info form-btn mt-2" type="button">Do listy postów</button></a>
+<a href="{{route('post.index')}}"><button class="btn btn-primary form-btn mt-1" type="button">Do listy postów</button></a>
 
 <script>
     function confirmDelete()
