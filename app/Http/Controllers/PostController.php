@@ -67,15 +67,17 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        
+        return view('post.edytuj',compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostStoreRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect()->route('post.index')->with('message','Zmieniono poprawnie posta');
     }
 
     /**
@@ -83,6 +85,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('post.index')->with('message','Usunięto poprawnie posta')->with('class','danger');
     }
 }
