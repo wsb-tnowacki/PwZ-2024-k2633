@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -27,14 +32,16 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+//    public function store(Request $request)
+    public function store(PostStoreRequest $request)
+
     {
-        $request->validate([
+        /* $request->validate([
             'tytul' => 'required|min:3|max:200',
             'autor' => ['required','min:4','max:100'],
             'email' => ['required','email:rfc,dns'],
             'tresc' => ['required','min:5'],
-        ]);
+        ]); */
         
         $post= new Post();
 /*         $post->tytul = $request['tytul'];
