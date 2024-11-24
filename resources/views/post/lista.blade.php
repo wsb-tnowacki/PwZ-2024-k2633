@@ -17,7 +17,7 @@
                 @foreach ($posty as $post)
                     <tr>
                         <td>{{$lp++}}</td>
-                        <td>{{$post->tytul}}</td>
+                        <td><a href="{{route('post.show',$post->id)}}">{{$post->tytul}}</a></td>
                         <td>{{$post->autor}}</td>
                         <td>{{date('j F Y',strtotime($post->created_at))}}</td>
                         <td class="d-flex">
