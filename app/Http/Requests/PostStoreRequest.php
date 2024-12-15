@@ -28,7 +28,7 @@ class PostStoreRequest extends FormRequest
             'tresc' => ['required','min:5'],
         ];
     }
-    public function messages(): array
+   /*  public function messages(): array
     {
         return [
             'required' => 'Pole jest wymagane',
@@ -36,5 +36,5 @@ class PostStoreRequest extends FormRequest
             'max' => 'Pole wymaga maksimum :max znaków',
             'email' => 'Niepoprawny email'
         ];
-    }
+    } */
 }
