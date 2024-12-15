@@ -9,11 +9,11 @@
 </div>
 <div class="for-group">
     <label for="autor">Autor</label>
-    <input type="text" class="form-control" name="autor" id="autor" placeholder="Podaj autora postu" value="{{$post->autor}}" disabled>
+    <input type="text" class="form-control" name="autor" id="autor" placeholder="Podaj autora postu" value="{{$post->user->name}}" disabled>
 </div>
 <div class="for-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" name="email" id="email" placeholder="Podaj email autora postu" value="{{$post->email}}" disabled> 
+    <input type="email" class="form-control" name="email" id="email" placeholder="Podaj email autora postu" value="{{$post->user->email}}" disabled> 
 </div>
 <div><p>Data utworzenia postu: <b>{{$post->created_at}}</b></p></div>
 <div><p>Data edycji postu: <b>{{$post->updated_at}}</b></p></div>
