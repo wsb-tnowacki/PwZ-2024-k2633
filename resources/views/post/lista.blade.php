@@ -17,6 +17,7 @@
         @isset($posty)
             @if($posty->count())
                 @php($lp=1)
+                @php($lp=$posty->firstItem())
                 @foreach ($posty as $post)
                     <tr>
                         <td>{{$lp++}}</td>
@@ -47,6 +48,9 @@
         @endisset
     </tbody>
 </table> 
+@isset($posty)
+    {{$posty->links()}}
+@endisset
 <script>
     function confirmDelete()
     {
